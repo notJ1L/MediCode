@@ -110,7 +110,6 @@
             background-color: white;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border: 1px solid #ddd;
-            display: none;
         }
 
         .header {
@@ -579,6 +578,7 @@
                 // Successful login
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('medicalRecord').style.display = 'block';
+                document.body.style.background = '#f5f5f5';
                 errorMessage.style.display = 'none';
             } else {
                 // Failed login
@@ -591,6 +591,7 @@
         function logout() {
             document.getElementById('loginScreen').style.display = 'flex';
             document.getElementById('medicalRecord').style.display = 'none';
+            document.body.style.background = 'linear-gradient(135deg, #c41e3a 0%, #a01729 100%)';
             document.getElementById('username').value = '';
             document.getElementById('password').value = '';
             document.getElementById('errorMessage').style.display = 'none';
