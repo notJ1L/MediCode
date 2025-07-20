@@ -18,12 +18,99 @@
             line-height: 1.4;
         }
 
+        /* Login Screen Styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #c41e3a 0%, #a01729 100%);
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-header {
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            color: #c41e3a;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #444;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #c41e3a;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #c41e3a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #a01729;
+        }
+
+        .error-message {
+            color: #c41e3a;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Medical Record Styles */
         .container {
             max-width: 800px;
             margin: 20px auto;
             background-color: white;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border: 1px solid #ddd;
+            display: none;
         }
 
         .header {
@@ -210,7 +297,29 @@
             font-size: 12px;
         }
 
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #a01729;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .logout-btn:hover {
+            background-color: #801520;
+        }
+
         @media (max-width: 600px) {
+            .login-box {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            
             .container {
                 margin: 10px;
             }
@@ -227,194 +336,271 @@
             .student-photo {
                 margin-bottom: 15px;
             }
+
+            .logout-btn {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-bottom: 20px;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>STUDENT MEDICAL RECORD SYSTEM</h1>
-            <div class="subtitle">Emergency Medical Information Profile</div>
-        </div>
-
-        <div class="record-id">
-            <strong>Record ID:</strong> SMR-2024-001 | <strong>Last Updated:</strong> January 15, 2025 | <strong>Status:</strong> Active
-        </div>
-
-        <div class="content">
-            <!-- Basic Information -->
-            <div class="section">
-                <div class="section-title">STUDENT INFORMATION</div>
-                <div class="student-info-container">
-                    <div class="student-photo">
-                        <div class="photo-placeholder">
-                            <div class="photo-icon">📷</div>
-                            <div class="photo-text">STUDENT ID<br>PHOTO</div>
-                        </div>
-                    </div>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <div class="info-label">Full Name:</div>
-                            <div class="info-value">Johnson, Emily Rose</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Age:</div>
-                            <div class="info-value">16 years old</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Sex:</div>
-                            <div class="info-value">Female</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Grade Level:</div>
-                            <div class="info-value">Grade 11</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Section:</div>
-                            <div class="info-value">Einstein</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Student ID:</div>
-                            <div class="info-value">2024-11-0156</div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>🏥 Medical Records</h1>
+                <p>Secure Access Portal</p>
             </div>
-
-            <!-- Critical Health Information -->
-            <div class="critical-info">
-                <div class="section-title">⚠️ CRITICAL HEALTH ALERTS</div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-label">Known Allergies:</div>
-                        <div class="info-value">
-                            <strong>Peanuts (Severe - Anaphylaxis)</strong><br>
-                            Shellfish (Moderate - Hives, Swelling)<br>
-                            Penicillin (Mild - Rash)
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">Blood Type:</div>
-                        <div class="info-value">
-                            <div class="blood-type">O+</div>
-                        </div>
-                    </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
-            </div>
-
-            <!-- Medical Conditions -->
-            <div class="section">
-                <div class="section-title">EXISTING MEDICAL CONDITIONS</div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-label">Primary Conditions:</div>
-                        <div class="info-value">
-                            Asthma (Exercise-induced)<br>
-                            Type 1 Diabetes (Well-controlled)<br>
-                            Mild Scoliosis
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">Onset Dates:</div>
-                        <div class="info-value">
-                            Asthma: Age 8 (2016)<br>
-                            Diabetes: Age 12 (2020)<br>
-                            Scoliosis: Age 14 (2022)
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
                 </div>
-            </div>
-
-            <!-- Current Medications -->
-            <div class="section">
-                <div class="section-title">CURRENT MEDICATIONS</div>
-                <div class="medication-item">
-                    <strong>Albuterol Inhaler (Ventolin)</strong><br>
-                    Dosage: 2 puffs as needed for asthma symptoms<br>
-                    Location: Student carries in backpack
+                <button type="submit" class="login-btn">Login</button>
+                <div id="errorMessage" class="error-message">
+                    Invalid username or password. Please try again.
                 </div>
-                <div class="medication-item">
-                    <strong>Insulin Pen (Rapid-acting)</strong><br>
-                    Dosage: As directed by blood glucose readings<br>
-                    Location: Kept in school nurse's office
-                </div>
-                <div class="medication-item">
-                    <strong>EpiPen (Epinephrine Auto-injector)</strong><br>
-                    Dosage: 0.3mg for severe allergic reactions<br>
-                    Location: Student carries + backup in nurse's office
-                </div>
-            </div>
-
-            <!-- Vaccination History -->
-            <div class="section">
-                <div class="section-title">VACCINATION HISTORY</div>
-                <div class="info-grid">
-                    <div style="grid-column: 1 / -1;">
-                        <div class="vaccination-item">
-                            <strong>COVID-19:</strong> Pfizer-BioNTech (3 doses) - Last: March 2024
-                        </div>
-                        <div class="vaccination-item">
-                            <strong>Influenza:</strong> Annual - Last: September 2024
-                        </div>
-                        <div class="vaccination-item">
-                            <strong>Tetanus/Diphtheria:</strong> Tdap - Last: June 2023
-                        </div>
-                        <div class="vaccination-item">
-                            <strong>Measles/Mumps/Rubella:</strong> MMR - Completed childhood series
-                        </div>
-                        <div class="vaccination-item">
-                            <strong>Hepatitis B:</strong> Completed series - Last: 2020
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Emergency Contact Information -->
-            <div class="emergency-contact">
-                <div class="section-title">🚨 EMERGENCY CONTACT INFORMATION</div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-label">Primary Contact:</div>
-                        <div class="info-value">
-                            <strong>Sarah Johnson (Mother)</strong><br>
-                            Mobile: (555) 123-4567<br>
-                            Work: (555) 987-6543<br>
-                            Email: sarah.johnson@email.com
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">Secondary Contact:</div>
-                        <div class="info-value">
-                            <strong>Michael Johnson (Father)</strong><br>
-                            Mobile: (555) 234-5678<br>
-                            Work: (555) 876-5432<br>
-                            Email: mike.johnson@email.com
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">Physician:</div>
-                        <div class="info-value">
-                            <strong>Dr. Amanda Chen, MD</strong><br>
-                            Metro Pediatrics<br>
-                            Phone: (555) 456-7890<br>
-                            Emergency: (555) 456-EMRG
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">Hospital Preference:</div>
-                        <div class="info-value">
-                            <strong>City General Hospital</strong><br>
-                            123 Medical Center Dr.<br>
-                            Emergency: (555) 911-HELP
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <strong>FOR EMERGENCY USE ONLY</strong> | This information is intended to support first responders, school health personnel, and teachers in making quick and informed decisions during medical emergencies occurring within school premises. | Confidential Medical Information - Handle in accordance with HIPAA guidelines.
+            </form>
         </div>
     </div>
+
+    <!-- Medical Record Content -->
+    <div id="medicalRecord">
+        <button class="logout-btn" onclick="logout()">Logout</button>
+        <div class="container">
+            <div class="header">
+                <h1>STUDENT MEDICAL RECORD SYSTEM</h1>
+                <div class="subtitle">Emergency Medical Information Profile</div>
+            </div>
+
+            <div class="record-id">
+                <strong>Record ID:</strong> SMR-2024-001 | <strong>Last Updated:</strong> January 15, 2025 | <strong>Status:</strong> Active
+            </div>
+
+            <div class="content">
+                <!-- Basic Information -->
+                <div class="section">
+                    <div class="section-title">STUDENT INFORMATION</div>
+                    <div class="student-info-container">
+                        <div class="student-photo">
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📷</div>
+                                <div class="photo-text">STUDENT ID<br>PHOTO</div>
+                            </div>
+                        </div>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">Full Name:</div>
+                                <div class="info-value">Johnson, Emily Rose</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Age:</div>
+                                <div class="info-value">16 years old</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Sex:</div>
+                                <div class="info-value">Female</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Grade Level:</div>
+                                <div class="info-value">Grade 11</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Section:</div>
+                                <div class="info-value">Einstein</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Student ID:</div>
+                                <div class="info-value">2024-11-0156</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Critical Health Information -->
+                <div class="critical-info">
+                    <div class="section-title">⚠️ CRITICAL HEALTH ALERTS</div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Known Allergies:</div>
+                            <div class="info-value">
+                                <strong>Peanuts (Severe - Anaphylaxis)</strong><br>
+                                Shellfish (Moderate - Hives, Swelling)<br>
+                                Penicillin (Mild - Rash)
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Blood Type:</div>
+                            <div class="info-value">
+                                <div class="blood-type">O+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Conditions -->
+                <div class="section">
+                    <div class="section-title">EXISTING MEDICAL CONDITIONS</div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Primary Conditions:</div>
+                            <div class="info-value">
+                                Asthma (Exercise-induced)<br>
+                                Type 1 Diabetes (Well-controlled)<br>
+                                Mild Scoliosis
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Onset Dates:</div>
+                            <div class="info-value">
+                                Asthma: Age 8 (2016)<br>
+                                Diabetes: Age 12 (2020)<br>
+                                Scoliosis: Age 14 (2022)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Medications -->
+                <div class="section">
+                    <div class="section-title">CURRENT MEDICATIONS</div>
+                    <div class="medication-item">
+                        <strong>Albuterol Inhaler (Ventolin)</strong><br>
+                        Dosage: 2 puffs as needed for asthma symptoms<br>
+                        Location: Student carries in backpack
+                    </div>
+                    <div class="medication-item">
+                        <strong>Insulin Pen (Rapid-acting)</strong><br>
+                        Dosage: As directed by blood glucose readings<br>
+                        Location: Kept in school nurse's office
+                    </div>
+                    <div class="medication-item">
+                        <strong>EpiPen (Epinephrine Auto-injector)</strong><br>
+                        Dosage: 0.3mg for severe allergic reactions<br>
+                        Location: Student carries + backup in nurse's office
+                    </div>
+                </div>
+
+                <!-- Vaccination History -->
+                <div class="section">
+                    <div class="section-title">VACCINATION HISTORY</div>
+                    <div class="info-grid">
+                        <div style="grid-column: 1 / -1;">
+                            <div class="vaccination-item">
+                                <strong>COVID-19:</strong> Pfizer-BioNTech (3 doses) - Last: March 2024
+                            </div>
+                            <div class="vaccination-item">
+                                <strong>Influenza:</strong> Annual - Last: September 2024
+                            </div>
+                            <div class="vaccination-item">
+                                <strong>Tetanus/Diphtheria:</strong> Tdap - Last: June 2023
+                            </div>
+                            <div class="vaccination-item">
+                                <strong>Measles/Mumps/Rubella:</strong> MMR - Completed childhood series
+                            </div>
+                            <div class="vaccination-item">
+                                <strong>Hepatitis B:</strong> Completed series - Last: 2020
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emergency Contact Information -->
+                <div class="emergency-contact">
+                    <div class="section-title">🚨 EMERGENCY CONTACT INFORMATION</div>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Primary Contact:</div>
+                            <div class="info-value">
+                                <strong>Sarah Johnson (Mother)</strong><br>
+                                Mobile: (555) 123-4567<br>
+                                Work: (555) 987-6543<br>
+                                Email: sarah.johnson@email.com
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Secondary Contact:</div>
+                            <div class="info-value">
+                                <strong>Michael Johnson (Father)</strong><br>
+                                Mobile: (555) 234-5678<br>
+                                Work: (555) 876-5432<br>
+                                Email: mike.johnson@email.com
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Physician:</div>
+                            <div class="info-value">
+                                <strong>Dr. Amanda Chen, MD</strong><br>
+                                Metro Pediatrics<br>
+                                Phone: (555) 456-7890<br>
+                                Emergency: (555) 456-EMRG
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Hospital Preference:</div>
+                            <div class="info-value">
+                                <strong>City General Hospital</strong><br>
+                                123 Medical Center Dr.<br>
+                                Emergency: (555) 911-HELP
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <strong>FOR EMERGENCY USE ONLY</strong> | This information is intended to support first responders, school health personnel, and teachers in making quick and informed decisions during medical emergencies occurring within school premises. | Confidential Medical Information - Handle in accordance with HIPAA guidelines.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Login credentials
+        const validUsername = "johnson";
+        const validPassword = "TUPT040506";
+
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (username === validUsername && password === validPassword) {
+                // Successful login
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('medicalRecord').style.display = 'block';
+                errorMessage.style.display = 'none';
+            } else {
+                // Failed login
+                errorMessage.style.display = 'block';
+                document.getElementById('password').value = ''; // Clear password field
+            }
+        });
+
+        // Logout function
+        function logout() {
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('medicalRecord').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+
+        // Show login screen on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('medicalRecord').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
